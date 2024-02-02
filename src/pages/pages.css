@@ -1,0 +1,98 @@
+.order-menu {
+    width: 30%;
+    background-color: white;
+    padding-top: 100px;
+    overflow-y: visible!important;
+    position: sticky;
+    left: 100%;
+}
+
+.order-menu h3{
+    font-size: 40px;
+}
+
+.order-menu p{
+
+}
+
+.features{
+    display: flex;
+    justify-content: space-around;
+    margin: 30px;
+}
+
+.features .feature{
+    width: 90px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    
+}
+
+.features .feature .feature-quantity{
+    display: flex;
+}
+
+.features .feature div h4{
+    font-size: 50px;
+}
+.features .feature div p{
+    font-size: 20px;
+    align-self: flex-end;
+    margin-bottom: 10px;
+}
+
+.features .feature p{
+    font-size: 16px;
+}
+
+.order-now button{
+    padding: 10px 40px 10px 40px;
+    border-radius: 6px;
+    background-color: #3D4BCB;
+    color: white;
+    margin-top: 30px;
+}
+
+
+.exterior-interior-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.exterior-interior-container .exterior-interior {
+    cursor: pointer;
+    display: flex; 
+    gap: 20px;
+    align-items: center;
+    border: 1px solid rgba(90, 89, 89, 0.473);
+    padding: 5px .8rem 5px .8rem;
+    border-radius: 3px;
+    transition: box-shadow .4s ease;
+    transition: transform .4s ease-in-out;
+    min-width: 320px;
+    justify-content: space-between;
+}
+
+.exterior-interior-container .exterior-interior.active {
+    transform:scale(1.01);
+    box-shadow: 0px 0px 8px 0px rgba(0, 0, 0, 0.164);
+    border: 3px solid rgb(15, 138, 253);
+}
+.exterior-interior-container .exterior-interior div{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px
+}
+
+.exterior-interior-container .exterior-interior .checkbox{
+    width: 10px;
+    padding: 20px;
+    border-radius: 20px;
+    background-color: darkblue;
+    
+}
