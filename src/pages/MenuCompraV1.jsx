@@ -2,11 +2,11 @@
 import { Suspense, useState } from 'react'
 import { Canvas } from "@react-three/fiber";
 import Loader from '../components/Loader'
-import CuatroPorCuatro from '../components/models/modelCuatroPorCuatro';
+import DosPorCuatro from '../components/models/modelDosPorCuatro';
 import { OrbitControls } from "@react-three/drei";
-import { Link } from 'react-router-dom'
 import Logo from "../assets/logo-new.png"
 import './pages.css'
+
 const MenuCompraV1 = () => {
     const [exterior, setExterior] = useState(false);
     const [dolarHoy, setDolar] = useState(0);
@@ -54,7 +54,7 @@ const MenuCompraV1 = () => {
                             <ambientLight intensity={0.5} />
                             <hemisphereLight intensity={2} skyColor="#b1e1ff" groundColor="#000000" />
 
-                            <CuatroPorCuatro position={modelPosition} scale={modelScale} rotation={rotation} />
+                            <DosPorCuatro position={modelPosition} scale={modelScale} rotation={rotation} />
 
                         </Suspense>
                     </Canvas>
@@ -63,7 +63,7 @@ const MenuCompraV1 = () => {
                 <div className='order-menu' style={{height: (exterior ? "100vh" :"100vh") }}>
                     <h3>AutoKit Start</h3>
                     <p>Estimado de llegada: </p>
-                    <button>Ingrese codigo postal (abre modal)</button>
+                    <button disabled>Ingrese codigo postal</button>
                     <div className='features'>
                         <div className='feature'>
                             <div className="feature-quantity">
@@ -99,14 +99,14 @@ const MenuCompraV1 = () => {
                                 <div className='checkbox'></div>
                                 <p>Interior</p>
                             </div>
-                            <p>AR$ {(48.85 * dolarHoy).toLocaleString('es-ES', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</p>
+                            <p>AR$ {(57.35 * dolarHoy).toLocaleString('es-ES', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</p>
                         </div>
                         <div className={'exterior-interior ' + (exterior && "active")} onClick={() => setExterior(true)}>
                             <div>
                                 <div className='checkbox'></div>
                                 <p>Exterior</p>
                             </div>
-                            <p>AR$ {(58.85 * dolarHoy).toLocaleString('es-ES', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</p>
+                            <p>AR$ {(67.35 * dolarHoy).toLocaleString('es-ES', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</p>
                         </div>
                     </div>
 
@@ -124,10 +124,11 @@ const MenuCompraV1 = () => {
                         <p style={{ fontSize: 20 }}>
                             Ordena tu AutoKit 4x4
                         </p>
-                        <p>
+                        <p style={{marginBottom: 20}}>
                             Estimado de llegada:
                         </p>
-                        <button>Continuar</button>
+                        {exterior ? (<a className='botonContinuar' href="https://confiplant.mercadoshops.com.ar/MLA-1398747251-auto-cultivo-optimizado-indoor-wifi-confiplant-starter-kit-_JM">Continuar</a>):(<a href="https://confiplant.mercadoshops.com.ar/MLA-1398747251-auto-cultivo-optimizado-indoor-wifi-confiplant-starter-kit-_JM"  className='botonContinuar' >Continuar</a>)}
+                        
                     </div>
 
 

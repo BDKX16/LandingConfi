@@ -4,7 +4,6 @@ import { Canvas } from "@react-three/fiber";
 import Loader from '../components/Loader'
 import CuatroPorCuatro from '../components/models/modelCuatroPorCuatro';
 import { OrbitControls } from "@react-three/drei";
-import { Link } from 'react-router-dom'
 import Logo from "../assets/logo-new.png"
 import './pages.css'
 const MenuCompra = () => {
@@ -99,14 +98,14 @@ const MenuCompra = () => {
                                 <div className='checkbox'></div>
                                 <p>Interior</p>
                             </div>
-                            <p>AR$ {(58.35 * dolarHoy).toLocaleString('es-ES', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</p>
+                            <p>AR$ {(72.35 * dolarHoy).toLocaleString('es-ES', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</p>
                         </div>
                         <div className={'exterior-interior ' + (exterior && "active")} onClick={() => setExterior(true)}>
                             <div>
                                 <div className='checkbox'></div>
                                 <p>Exterior</p>
                             </div>
-                            <p>AR$ {(68.35 * dolarHoy).toLocaleString('es-ES', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</p>
+                            <p>AR$ {(88.35* dolarHoy).toLocaleString('es-ES', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</p>
                         </div>
                     </div>
 
@@ -124,10 +123,11 @@ const MenuCompra = () => {
                         <p style={{ fontSize: 20 }}>
                             Ordena tu AutoKit 4x4
                         </p>
-                        <p>
+                        <p style={{ marginBottom: 20 }}>
                             Estimado de llegada:
                         </p>
-                        <button>Continuar</button>
+                        {exterior ? (<a className='botonContinuar' href="https://confiplant.mercadoshops.com.ar/MLA-1398845651-auto-cultivo-optimizado-indoor-wifi-confiplant-amateur-kit-_JM">Continuar</a>):(<a href="https://confiplant.mercadoshops.com.ar/MLA-1398845651-auto-cultivo-optimizado-indoor-wifi-confiplant-amateur-kit-_JM"  className='botonContinuar' >Continuar</a>)}
+                        
                     </div>
                 </div>
             </div>
