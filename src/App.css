@@ -228,18 +228,24 @@
   z-index: 1;
   transition: all 1s ease-in-out;
 }
+.second-page-container{
+  display: flex;
+  flex-direction: row;
+ justify-content: space-between;
+ flex:1;
+ height: 100vh;
+}
 
 .mobile-images-container {
   cursor: pointer;
   position: relative;
-  width: 420px;
-  margin-right: 50px;
-  right: 400px;
+  width: 30%;
+  margin-right: 5%;
+  margin-left: 10%;
 }
 
 .mobile-image-container {
   width: 18.5625rem;
-  height: 39.5rem;
   border-radius: 2.75rem;
   position: relative;
   transition: all 1s ease;
@@ -700,6 +706,7 @@
 .footer {
   background-color: rgb(43, 39, 39);
   height: 200px;
+  margin-top: 100px;
   position: relative;
   display: flex;
   width: 100%;
@@ -741,12 +748,12 @@
 
 .footer div label {
   color: white;
-  font-size: 1.17rem;
+  font-size: 1.00rem;
 }
 
 .footer div h4 {
   color: white;
-  font-size: 1.8rem;
+  font-size: 1.55rem;
 }
 
 .footer .tercerTable {
@@ -758,7 +765,7 @@
 
 .footer .tercerTable label {
   color: white;
-  margin-right: 20px;
+  margin-right: 18px;
 }
 
 .footer .tercerTable a {
@@ -768,6 +775,10 @@
 .footer .tercerTable a img {
   cursor: pointer;
   width: 10rem;
+  transition: all .3s ease;
+}
+.footer .tercerTable a img:hover {
+  transform: scale(1.03);
 }
 
 .botonContinuar {

@@ -268,21 +268,24 @@ function App() {
             ></path>
           </svg>
         </div>
-        <div className="mobile-images-container">
-          <div className="mobile-image-container">
-            <img src={MobileImage} alt="Confi Plant App"></img>
+        <div className="second-page-container">
+          <div className="mobile-images-container">
+            <div className="mobile-image-container">
+              <img src={MobileImage} alt="Confi Plant App"></img>
+            </div>
+            <div className="mobile2-image-container">
+              <img src={MobileImage2} alt="Confi Plant App timers"></img>
+            </div>
           </div>
-          <div className="mobile2-image-container">
-            <img src={MobileImage2} alt="Confi Plant App timers"></img>
+          <div className="mobile-text-container">
+            <p className="text-white">CONFI PLANT</p>
+            <p>
+              te permite controlar y cuidar tus plantas desde tu celular, cuando y
+              donde quieras!.
+            </p>
           </div>
         </div>
-        <div className="mobile-text-container">
-          <p className="text-white">CONFI PLANT</p>
-          <p>
-            te permite controlar y cuidar tus plantas desde tu celular, cuando y
-            donde quieras!.
-          </p>
-        </div>
+        
       </div>
       <label id="ordernow" style={{ color: "transparent" }}></label>
       <div

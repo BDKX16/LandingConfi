@@ -16,7 +16,7 @@ html {
 
 body {
   font-family: "Work Sans", sans-serif;
-  background-color: #C0F5C3;
+  background-color: #25992c;
 }
 
 body:has(.card[data-color="blue"]:hover) {
