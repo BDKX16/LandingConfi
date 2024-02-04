@@ -13,9 +13,13 @@ import MobileImage4 from "./assets/screenCaptureMobileApp4.jpg"
 import PlayStore from "./assets/playstore.png"
 import Logo from "./assets/logo-new.png"
 import { Link } from 'react-router-dom'
+import Card from './components/Card';
 
 function App() {
   const [dolarHoy, setDolar] = useState(0);
+  const [screens, setScreens] = useState([0,1,2,3]);
+  const [activeScreen, setActive] = useState(0);
+  const [prevValue, setPrevValue] = useState(0);
   const adjustForScreenSize = () => {
     let screenScale = null;
     let screenPosition = [-56.205, -30, -12.454]
@@ -233,24 +237,32 @@ function App() {
         <div className='mobile-images-showup' style={{ width: "100%", position: "relative" }}>
 
           <div className='imagenes'>
-            <div className='mobile-image-showup' style={{ left: 100 }}>
-              <img src={MobileImage} alt="Confi Plant App1"></img>
-            </div>
-            <div className='mobile-image-showup'>
-              <img src={MobileImage2} alt="Confi Plant App timers2"></img>
-            </div>
-            <div className='mobile-image-showup'>
-              <img src={MobileImage3} alt="Confi Plant App3"></img>
-            </div>
-            <div className='mobile-image-showup'>
-              <img src={MobileImage4} alt="Confi Plant App4"></img>
-            </div>
             
+
+          <button style={{padding:10,backgroundColor:"red",zIndex:20,cursor:"pointer"}}onClick={()=>{
+            if(activeScreen<3){
+              setPrevValue(activeScreen)
+              setActive(activeScreen+1)
+            }
+            }}>Next</button>
+          <button  style={{padding:10,backgroundColor:"red",zIndex:20,cursor:"pointer"}}onClick={()=>{
+            if(activeScreen>0){
+              setPrevValue(activeScreen)
+              setActive(activeScreen-1)
+            }
+            }}>Prev</button>
+            
+            {screens.map((index)=>{
+              return <Card key={index} index={index} isPrev={(prevValue > activeScreen&& activeScreen == index)} isNext={(prevValue < activeScreen&& activeScreen == index)} isSelected={activeScreen===index} isPrevValue={prevValue===index}></Card>
+            })}
+           
+          
           </div>
+          
 
           <div className='textos'>
             <div style={{position: "relative", width: "100%",
-  height: "100%"}}>
+            height: "100%"}}>
 
 
               <div className='texto-description' style={{top: 0, left:"20%"}}>
@@ -299,7 +311,7 @@ function App() {
 
                 </p>
               </div>
-              <div style={{position:"absolute",bottom: 10, right:100}}>
+              <div style={{position:"absolute",bottom: 10, right:"5%",zIndex:1}}>
                 <a href="https://play.google.com/store/apps/details?id=com.xavigmp.confiplant&hl=es_CO&gl=US">
 
                 <img src={PlayStore} alt="Download"></img>
@@ -314,8 +326,8 @@ function App() {
       <div className='footer'>
         <div className='firstTable'>
           <h4>Nuestros productos:</h4>
-          <a href="https://play.google.com/store/apps/details?id=com.xavigmp.confiplant&hl=es_CO&gl=US"><label className='firstTableText' style={{fontSize:"1.7rem",textShadow:"0px 4px 10px rgba(0, 0, 0, 0.25)"}}>Autokit V1</label></a>
-          <a href="https://play.google.com/store/apps/details?id=com.xavigmp.confiplant&hl=es_CO&gl=US"><label  className='firstTableText' style={{fontSize:"1.7rem",textShadow:"0px 4px 10px rgba(0, 0, 0, 0.25)"}}>Autokit V2</label></a>         
+          <Link to="/orderv1"><label className='firstTableText' style={{fontSize:"1.7rem",textShadow:"0px 4px 10px rgba(0, 0, 0, 0.25)"}}>Autokit V1</label></Link>
+          <Link to="/order"><label  className='firstTableText' style={{fontSize:"1.7rem",textShadow:"0px 4px 10px rgba(0, 0, 0, 0.25)"}}>Autokit V2</label></Link>        
           
         </div>
         <div className='secondTable'>

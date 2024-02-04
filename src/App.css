@@ -351,9 +351,12 @@
 
 
 .mobile-image-showup {
-  width: 10.5625rem;
-  height: 30.5rem;
+  width: 12.5625rem;
+  height: 32.5rem;
   border-radius: 2.75rem;
+  position: absolute;
+  top:26%;
+  left:45%
 }
 
 
@@ -374,7 +377,7 @@
 }
 
 .imagenes{
-  position: absolute;
+  position: relative;
   top: 0px;
   left: 0px;
   flex:1;
@@ -399,12 +402,72 @@
 }
 
 .texto-description p{
-  line-height: 20px;
+  line-height: 0.95rem;
   font-size: 0.8rem;
+  z-index: 3;
 }
 
 .texto-description:hover{
   transform: scale(1.1);
+  z-index: 4;
+}
+
+
+
+
+.mobile-image-showup.sendBackRigth{
+  animation-name: sendBackRigth;
+  animation-duration: 1.2s;
+  animation-iteration-count: initial;
+  animation-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  opacity: 0;
+}
+
+@keyframes sendBackRigth{
+  0% {
+    transform: translateX(0px)scale(0.8);
+    opacity: 0;
+    z-index: 3;
+  }
+
+  70% {
+    transform: translateX(-130px)translateY(-10px)rotate(-1deg);
+    opacity: 0.9;
+  }
+
+  100% {
+    transform: translateX(0px);
+    opacity: 1;
+    z-index: 3;
+  }
+}
+
+
+.mobile-image-showup.sendBack{
+  animation-name: sendBackLeft;
+  animation-duration: 1.3s;
+  animation-iteration-count: initial;
+  animation-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  opacity: 0;
+}
+
+@keyframes sendBackLeft{
+  0% {
+    transform: translateX(0px)scale(0.8);
+    z-index: 2;
+    opacity: 0;
+  }
+
+  65% {
+    transform: translateX(120px)translateY(7px)rotate(-1deg);
+    opacity: 0.9;
+  }
+
+  100% {
+    transform: translateX(0px);
+    opacity: 1;
+    z-index: 3;
+  }
 }
 
 @media screen and (max-width:1370px){
@@ -415,9 +478,10 @@
   }
 
   .mobile-image-showup {
-    width: 7.5625rem;
-    height: 23.5rem;
+    width: 12.5625rem;
+    height: 27.5rem;
     border-radius: 1.75rem;
+    top:16%;
   }
 
   .mobile-image-showup img {
