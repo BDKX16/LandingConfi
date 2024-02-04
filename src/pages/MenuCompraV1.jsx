@@ -60,7 +60,7 @@ const MenuCompraV1 = () => {
                     </Canvas>
 
                 </div>
-                <div className='order-menu' style={{height: (exterior ? "100vh" :"100vh") }}>
+                <div className='order-menu' style={{height: (exterior ? "155vh" :"100vh") }}>
                     <h3>AutoKit Start</h3>
                     <p>Estimado de llegada: </p>
                     <button disabled>Ingrese codigo postal</button>

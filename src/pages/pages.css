@@ -2,9 +2,10 @@
     width: 30%;
     background-color: white;
     padding-top: 100px;
-    overflow-y: visible!important;
+    overflow-y: visible !important;
     position: sticky;
     left: 100%;
+    top:0px;
 }
 
 .order-menu h3{
