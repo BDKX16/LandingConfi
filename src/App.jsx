@@ -6,10 +6,8 @@ import Loader from "./components/Loader";
 import CuatroPorCuatro from "./components/models/modelCuatroPorCuatro";
 import { OrbitControls } from "@react-three/drei";
 import WebImage from "./assets/screenCaptureConfiPLantWeb.png";
-import MobileImage from "./assets/screenCaptureMobileApp.png";
-import MobileImage2 from "./assets/screenCaptureMobileApp2.png";
-import MobileImage3 from "./assets/screenCaptureMobileApp3.jpg";
-import MobileImage4 from "./assets/screenCaptureMobileApp4.jpg";
+import MobileImage from "./assets/screenCaptureMobileApp.jpg";
+import MobileImage2 from "./assets/screenCaptureMobileApp2.jpg";
 import PlayStore from "./assets/playstore.png";
 import Logo from "./assets/logo-new.png";
 import { Link } from "react-router-dom";
@@ -17,12 +15,12 @@ import Card from "./components/Card";
 
 function App() {
   const [dolarHoy, setDolar] = useState(0);
-  const [screens, setScreens] = useState([0, 1, 2, 3]);
   const [activeScreen, setActive] = useState(0);
   const [prevValue, setPrevValue] = useState(0);
-
-
   const timeoutRef = useRef(null);
+
+  const screens = [0, 1, 2, 3, 4];
+
 
   function resetTimeout() {
     if (timeoutRef.current) {
@@ -76,10 +74,8 @@ function App() {
         <div className="navigate-tabs">
           <a href="#webapp">Inicio</a>
           <a href="#mobileapp">Aplicacion</a>
-          <a href="#opciones">Auto Kits</a>
-          <Link className="fake-a" to="/order">
-            Tienda
-          </Link>
+          <a href="#ordernow">Auto Kit</a>
+          <a href="#opciones">Tienda</a>
         </div>
         <div className="go-app-button">
           <a href="https://confiplant.cloud">Ir a la app</a>
@@ -87,17 +83,7 @@ function App() {
       </nav>
 
       <label id="webapp" style={{ color: "transparent" }}></label>
-      <div
-        style={{
-          backgroundColor: "#25992c",
-          height: "100vh",
-          alignItems: "start",
-          display: "flex",
-          padding: "10%",
-          flexDirection: "column",
-          justifyContent: "center",
-          position: "relative",
-        }}
+      <div className="initialPageContainer"
       >
         <div className="video-presentacion">
           <svg
@@ -143,7 +129,7 @@ function App() {
           <h2>LLeva tu cultivo al siguiente nivel!</h2>
 
           {/* <h4>Cambiamos la wea del cultivo de indoor Cambiamos la wea del cultivo de indoor Cambiamos la wea del cultivo de indoor, aca te mostramos como..</h4>*/}
-          <a className='boton-mira-como' href="#mobileapp"><p>Mira como</p></a>
+          <a className='boton-mira-como' href="#ordernow"><p>Mira como</p></a>
         </div>
         <div className="image-container">
           <img src={WebImage} alt="Confi Plant main dashboard"></img>
@@ -550,7 +536,7 @@ function App() {
               <svg style={{transform:"rotate(180deg)"}}width="20px" height="20px" viewBox="0 0 24 24" id="meteor-icon-kit__solid-chevron-circle-right" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M12 0C18.6274 0 24 5.37258 24 12C24 18.6274 18.6274 24 12 24C5.37258 24 0 18.6274 0 12C0 5.37258 5.37258 0 12 0ZM9.43934 14.9393C8.85355 15.5251 8.85355 16.4749 9.43934 17.0607C10.0251 17.6464 10.9749 17.6464 11.5607 17.0607L15.5607 13.0607C16.1464 12.4749 16.1464 11.5251 15.5607 10.9393L11.5607 6.93934C10.9749 6.35355 10.0251 6.35355 9.43934 6.93934C8.85355 7.52513 8.85355 8.47487 9.43934 9.06066L12.3787 12L9.43934 14.9393Z" fill="#bbeebe"/></svg>
             </button>
             {screens.map((index)=>{
-              return (<a className='dot' onClick={()=>{               
+              return (<a key={index} className='dot' onClick={()=>{               
                   setPrevValue(activeScreen);
                   setActive(index)
                 }} style={{backgroundColor:index===activeScreen?"#bbeebe":"#71dd77"}}></a>)
@@ -558,7 +544,7 @@ function App() {
             <button
               onClick={() => {
                 setPrevValue(activeScreen);
-                if (activeScreen < 3) {
+                if (activeScreen < (screens.length -1)) {
                   setActive(activeScreen + 1);
                 }else{
                   setActive(0);

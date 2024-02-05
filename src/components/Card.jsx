@@ -1,8 +1,9 @@
 import React from 'react'
-import MobileImage from "../assets/screenCaptureMobileApp.png"
-import MobileImage2 from "../assets/screenCaptureMobileApp2.png"
+import MobileImage from "../assets/screenCaptureMobileApp.jpg"
+import MobileImage2 from "../assets/screenCaptureMobileApp2.jpg"
 import MobileImage3 from "../assets/screenCaptureMobileApp3.jpg"
 import MobileImage4 from "../assets/screenCaptureMobileApp4.jpg"
+import MobileImage5 from "../assets/screenCaptureMobileApp5.jpg"
 
 const Card = ({index,isPrev,isNext,isSelected,isPrevValue}) => {
   console.log(isNext)
@@ -13,9 +14,11 @@ const Card = ({index,isPrev,isNext,isSelected,isPrevValue}) => {
     imageLink=MobileImage2
   } else if(index===2){
     imageLink=MobileImage3
-  } else {
+  } else if(index===3){
     imageLink=MobileImage4
-  }  
+  } else{
+    imageLink=MobileImage5
+  }
   return (
     <a className={'mobile-image-showup ' + (isNext?" sendBack":"")+(isPrev?" sendBackRigth":"")} style={{cursor:"pointer",opacity:(isSelected||isPrevValue)?1:0,zIndex:isSelected?3:2}}>
               <img src={imageLink} alt={"Confi Plant App nro "+index}></img>
