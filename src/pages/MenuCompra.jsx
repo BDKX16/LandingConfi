@@ -1,6 +1,8 @@
 /* eslint-disable react/no-unknown-property */
 import { Suspense, useState } from 'react'
 import { Canvas } from "@react-three/fiber";
+
+import { Link } from "react-router-dom";
 import Loader from '../components/Loader'
 import CuatroPorCuatro from '../components/models/modelCuatroPorCuatro';
 import { OrbitControls } from "@react-three/drei";
@@ -31,7 +33,7 @@ const MenuCompra = () => {
 
     return (
         <><nav className="nav-bar" >
-            <div className="logo-new"><img src={Logo} alt="Confi Plant"></img></div>
+            <Link to="/" className="logo-new"><img src={Logo} alt="Confi Plant"></img></Link>
         </nav>
             <div className='flex' style={{overflow: "hidden!important"}}>
                 <div className="3dimage-container" style={{ width: "70%", backgroundColor: "#C0F5C3", height: "100vh", display: "flex", justifyContent: "space-between", alignItems: "center", position: "fixed" }}>
@@ -61,8 +63,8 @@ const MenuCompra = () => {
                 </div>
                 <div className='order-menu' style={{height: (exterior ? "155vh" :"100vh") }}>
                     <h3>AutoKit Amateur</h3>
-                    <p>Estimado de llegada: </p>
-                    <button>Ingrese codigo postal (abre modal)</button>
+                    <p>Estimado de envio: </p>
+                    <button ><p style={{textDecoration: "line-through"}}>Ingrese codigo postal</p> <p style={{color: "green"}}>Envio gratis</p></button>
                     <div className='features'>
                         <div className='feature'>
                             <div className="feature-quantity">

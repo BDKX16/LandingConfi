@@ -536,7 +536,20 @@
   padding: 20px;
   border-radius: 110px;
   background-color: #89f18d;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
 }
+
+.green-bubble h3{
+  position: absolute;
+  z-index: 2;
+}
+
+
+
 
 .left-bubble {
   border-bottom-left-radius: 0px;

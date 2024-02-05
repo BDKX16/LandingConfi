@@ -9,6 +9,8 @@ import WebImage from "./assets/screenCaptureConfiPLantWeb.png";
 import MobileImage from "./assets/screenCaptureMobileApp.jpg";
 import MobileImage2 from "./assets/screenCaptureMobileApp2.jpg";
 import PlayStore from "./assets/playstore.png";
+import RHT from "./assets/rhandt.JPG";
+import Soil from "./assets/soil.JPG";
 import Logo from "./assets/logo-new.png";
 import { Link } from "react-router-dom";
 import Card from "./components/Card";
@@ -255,8 +257,10 @@ function App() {
           </p>
         </div>
         <div className="info-text-container">
+        <h3 style={{fontSize: 27, textAlign: "start", marginLeft: 20}}>Medicion ambiental</h3>
           <div className="green-bubble left-bubble">
-            <h3>Medicion ambiental</h3>
+            
+            <img style={{transform: "scale(1.1)", zIndex: 1}} src={RHT} alt="RHT"></img>
           </div>
           <p>
             Nuestro equipo de medicion cuenta con un sensor de temperatura y
@@ -298,7 +302,7 @@ function App() {
           </Suspense>
         </Canvas>
         <div className="info-text-container">
-          <p>
+          <p style={{marginRight: 20}} >
             {" "}
             Confi Plant tiene sensores de suelo de tipo capacitivos, que miden
             la humedad del sustrato de forma precisa y sin dañarlo. Estos
@@ -307,8 +311,9 @@ function App() {
             crecimiento y rendimiento.
           </p>
           <div className="green-bubble right-bubble">
-            <h3>Medicion de suelo</h3>
+            <img style={{transform: "scale(1.12)", zIndex: 1}} src={Soil} alt="Download"></img>
           </div>
+          <h3 style={{fontSize: 27, textAlign: "end", marginRight: 30}}>Medicion de suelo</h3>
         </div>
         <div className="call-to-action">
           <Link to="/order">
