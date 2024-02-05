@@ -479,7 +479,10 @@ function App() {
                 pueden afectar su crecimiento y rendimiento.
               </p>
             </div>
-            <div className="texto-description" style={{marginRight:10}}>
+            <div className="texto-description left" style={{marginRight:10}}>
+            <svg className="yellow" fill="rgb(251, 255, 0)" width="80px" height="80px" viewBox="0 0 1920 1920" xmlns="http://www.w3.org/2000/svg">
+                <path d="M960 0c529.355 0 960 430.645 960 960s-430.645 960-960 960S0 1489.355 0 960c0-172.687 46.419-341.986 134.174-489.6l97.017 57.713C153.826 658.22 112.94 807.529 112.94 960c0 467.125 379.934 847.059 847.059 847.059 467.125 0 847.059-379.934 847.059-847.059 0-448.038-349.779-816-790.588-845.139v223.963H903.529V0ZM322.334 242.372l482.259 482.372c44.612-29.704 97.92-47.097 155.407-47.097 155.633 0 282.353 126.72 282.353 282.353S1115.633 1242.353 960 1242.353 677.647 1115.633 677.647 960c0-57.487 17.393-110.795 47.097-155.407L242.372 322.334l79.962-79.962ZM960 790.588c-93.402 0-169.412 76.01-169.412 169.412s76.01 169.412 169.412 169.412 169.412-76.01 169.412-169.412S1053.402 790.588 960 790.588Z" fill-rule="evenodd"/>
+            </svg>
               <p>
                 El dispositivo también incluye <strong>timers</strong>{" "}
                 integrados que te permiten apagar y prender las luces para
@@ -564,7 +567,17 @@ function App() {
 
 
           <div className="textos-app">
-            <div className="texto-description" style={{marginRight:30}}>
+            <div className="texto-description right" style={{marginRight:30}}>
+            <svg className="blue" fill="rgb(55, 30, 196)" width="70px" height="70px" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+                  <g id="Layer_2" data-name="Layer 2">
+                    <g id="invisible_box" data-name="invisible box">
+                      <rect width="48" height="48" fill="none"/>
+                    </g>
+                    <g id="Layer_6" data-name="Layer 6">
+                      <path d="M25.2,2A21.8,21.8,0,0,0,8.9,8,21.6,21.6,0,0,0,2,24,22.1,22.1,0,0,0,22.9,46H23a3.2,3.2,0,0,0,2.1-.8A3.1,3.1,0,0,0,26,43V33.8a9.8,9.8,0,0,0,8-9.6V20a2.1,2.1,0,0,0-2-2H30V12.9a2,2,0,1,0-4,0V18H22V12.9a2,2,0,1,0-4,0V18H16a2,2,0,0,0-2,2v4.1a10,10,0,0,0,2.8,7A10.1,10.1,0,0,0,22,33.8v8.1a18,18,0,0,1-10.4-31A18.3,18.3,0,0,1,25,6,18.3,18.3,0,0,1,42,24.2a17.4,17.4,0,0,1-5.3,12.5,2.1,2.1,0,0,0,2.9,2.9A21.7,21.7,0,0,0,46,24.2,22.2,22.2,0,0,0,25.2,2ZM18,24.1V22H30v2.2A5.8,5.8,0,0,1,24.3,30h-.6a5.6,5.6,0,0,1-4-1.7A5.9,5.9,0,0,1,18,24.1Z"/>
+                    </g>
+                  </g>
+                </svg>
               <p>
                 Con Confi Plant podes elegir entre{" "}
                 <strong>2 y 4 enchufes</strong>(**Revisar opciones de compra)
@@ -588,7 +601,12 @@ function App() {
               </p>
             </div>
 
-            <div className="texto-description" style={{marginRight:40}}>
+            <div className="texto-description right" style={{marginRight:40}}>
+              <svg className="orange" fill="rgb(228, 148, 0)" width="60px" height="60px" viewBox="0 0 36 36" version="1.1"  preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                <title>notification-outline-badged</title>
+                <path class="clr-i-outline--badged clr-i-outline-path-1--badged" d="M18,34.28A2.67,2.67,0,0,0,20.58,32H15.32A2.67,2.67,0,0,0,18,34.28Z"></path><path class="clr-i-outline--badged clr-i-outline-path-2--badged" d="M32.51,27.83A14.4,14.4,0,0,1,30,24.9a12.63,12.63,0,0,1-1.35-4.81V15.15a10.92,10.92,0,0,0-.16-1.79,7.44,7.44,0,0,1-2.24-.84,8.89,8.89,0,0,1,.4,2.64v4.94a14.24,14.24,0,0,0,1.65,5.85,16.17,16.17,0,0,0,2.44,3H5.13a16.17,16.17,0,0,0,2.44-3,14.24,14.24,0,0,0,1.65-5.85V15.15A8.8,8.8,0,0,1,18,6.31a8.61,8.61,0,0,1,4.76,1.44A7.49,7.49,0,0,1,22.5,6c0-.21,0-.42,0-.63a10.58,10.58,0,0,0-3.32-1V3.11a1.33,1.33,0,1,0-2.67,0V4.42A10.81,10.81,0,0,0,7.21,15.15v4.94A12.63,12.63,0,0,1,5.86,24.9a14.4,14.4,0,0,1-2.47,2.93,1,1,0,0,0-.34.75v1.36a1,1,0,0,0,1,1h27.8a1,1,0,0,0,1-1V28.58A1,1,0,0,0,32.51,27.83Z"></path><circle class="clr-i-outline--badged clr-i-outline-path-1--badged clr-i-badge" cx="30" cy="6" r="5"></circle>
+                <rect x="0" y="0" width="36" height="36" fill-opacity="0"/>
+            </svg>
               <p>
                 Con Confi Plant podes configurar{" "}
                 <strong>alertas y notificaciones</strong> a{" "}
