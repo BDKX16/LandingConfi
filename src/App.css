@@ -87,6 +87,19 @@
   }
 }
 
+.boton-mira-como{
+  width:8rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding:10px;
+  background-color: #055f09;
+  color:white;
+  border-radius: 30px;
+  margin-left: 215px;
+  margin-top: 20px;
+}
+
 .go-app-button {
   margin-right: 15px;
   cursor: pointer;
@@ -104,7 +117,7 @@
 }
 
 .titles-container {
-  align-items: flex-start;
+  align-items: flex-center;
   display: flex;
   flex-direction: column;
 
@@ -168,9 +181,10 @@
   position: absolute;
   z-index: 1;
   min-width: 600px;
-  width: 53vw;
-  height: 27vw;
+  width: 44vw;
+  height: 24vw;
   right: 3%;
+  bottom:18%;
   border-radius: 2.125rem;
   border: 4px solid #aff2b1;
   box-shadow: 3px 4px 19.3px 3px rgba(0, 0, 0, 0.25);
@@ -200,7 +214,7 @@
   }
 
   50% {
-    transform: translateX(50px) rotate(5deg) translateY(-30px);
+    transform: translateX(10px) rotate(2deg) translateY(-10px);
   }
 
   100% {
@@ -214,7 +228,7 @@
   }
 
   50% {
-    transform: translateX(40px) rotate(-5deg) translateY(-30px);
+    transform: translateX(10px) rotate(-1deg) translateY(-10px);
   }
 
   100% {
@@ -245,7 +259,8 @@
 }
 
 .mobile-image-container {
-  width: 18.5625rem;
+  margin-top: 15%;
+  width: 17.5625rem;
   border-radius: 2.75rem;
   position: relative;
   transition: all 1s ease;
@@ -257,13 +272,13 @@
 
 .mobile2-image-container {
   z-index: 2;
-  width: 14.15056rem;
+  width: 13.15056rem;
   height: 29.58038rem;
   transform: rotate(1deg);
   border: 1px solid transparent;
   border-radius: 10px;
   bottom: -100px;
-  right: 10px;
+  right: 40px;
   position: absolute;
   transition: all 1s cubic-bezier(0.16, 0.44, 0.32, 1.175);
   bottom: -40px;
@@ -284,8 +299,9 @@
 
 .mobile-text-container {
   position: absolute;
-  right: 30px;
-  width: 50%;
+  right: 2%;
+  top:10%;
+  width: 60%;
   text-align: start;
   z-index: 1;
   cursor: default;
@@ -293,7 +309,7 @@
 
 .mobile-text-container p {
   font-family: Bungee Shade;
-  font-size: 4.8rem;
+  font-size: 4.6rem;
   line-height: 87px;
   text-align: end;
   transition: all 0.3s ease;

@@ -17,8 +17,8 @@ const Card = ({index,isPrev,isNext,isSelected,isPrevValue}) => {
     imageLink=MobileImage4
   }  
   return (
-    <a className={'mobile-image-showup' + (isNext?" sendBack":"")+(isPrev?" sendBackRigth":"")} style={{cursor:"pointer",opacity:(isSelected||isPrevValue)?1:0,zIndex:isSelected?3:2}}>
-              <img src={imageLink}alt="Confi Plant App4"></img>
+    <a className={'mobile-image-showup ' + (isNext?" sendBack":"")+(isPrev?" sendBackRigth":"")} style={{cursor:"pointer",opacity:(isSelected||isPrevValue)?1:0,zIndex:isSelected?3:2}}>
+              <img src={imageLink} alt={"Confi Plant App nro "+index}></img>
     </a>
   )
 }
