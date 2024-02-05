@@ -126,7 +126,7 @@ const MenuCompra = () => {
                         <p style={{ marginBottom: 20 }}>
                             Estimado de llegada:
                         </p>
-                        {exterior ? (<a className='botonContinuar' href="https://confiplant.mercadoshops.com.ar/MLA-1398845651-auto-cultivo-optimizado-indoor-wifi-confiplant-amateur-kit-_JM">Continuar</a>):(<a href="https://confiplant.mercadoshops.com.ar/MLA-1398845651-auto-cultivo-optimizado-indoor-wifi-confiplant-amateur-kit-_JM"  className='botonContinuar' >Continuar</a>)}
+                        {exterior ? (<a className='botonContinuar' href="https://confiplant.mercadoshops.com.ar/MLA-1658711052-auto-cultivo-optimizado-wifi-confiplant-amateur-kit-exterior-_JM">Continuar</a>):(<a href="https://confiplant.mercadoshops.com.ar/MLA-1398845651-auto-cultivo-optimizado-indoor-wifi-confiplant-amateur-kit-_JM"  className='botonContinuar' >Continuar</a>)}
                         
                     </div>
                 </div>
