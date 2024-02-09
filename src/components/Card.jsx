@@ -6,7 +6,6 @@ import MobileImage4 from "../assets/screenCaptureMobileApp4.jpg"
 import MobileImage5 from "../assets/screenCaptureMobileApp5.jpg"
 
 const Card = ({index,isPrev,isNext,isSelected,isPrevValue}) => {
-  console.log(isNext)
   let imageLink;
   if(index===0){
     imageLink=MobileImage

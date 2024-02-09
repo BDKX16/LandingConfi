@@ -1,5 +1,5 @@
 /* eslint-disable react/no-unknown-property */
-import { Suspense, useState,useRef,useEffect } from "react";
+import { Suspense, useState, useRef, useEffect } from "react";
 import "./App.css";
 import { Canvas } from "@react-three/fiber";
 import Loader from "./components/Loader";
@@ -20,9 +20,7 @@ function App() {
   const [activeScreen, setActive] = useState(0);
   const [prevValue, setPrevValue] = useState(0);
   const timeoutRef = useRef(null);
-
   const screens = [0, 1, 2, 3, 4];
-
 
   function resetTimeout() {
     if (timeoutRef.current) {
@@ -32,31 +30,26 @@ function App() {
 
   useEffect(() => {
     resetTimeout();
-    timeoutRef.current = setTimeout(
-      () =>{
-        setPrevValue(activeScreen);
-        setActive((prevIndex) =>
-          prevIndex === screens.length - 1 ? 0 : prevIndex + 1
-        )},
-      4000
-    );
+    timeoutRef.current = setTimeout(() => {
+      setPrevValue(activeScreen);
+      setActive((prevIndex) =>
+        prevIndex === screens.length - 1 ? 0 : prevIndex + 1
+      );
+    }, 4000);
 
     return () => {
       resetTimeout();
     };
   }, [activeScreen]);
 
-
-
   const adjustForScreenSize = () => {
     let screenScale = null;
     let screenPosition = [-56.205, -30, -12.454];
     let rotation = [-1.444, 1.207, -2];
-
-    if (window.innerWidth < 768) {
-      screenScale = [0.8, 0.8, 0.8];
+    if (screen.availWidth < 768) {
+      screenScale = [1, 1, 1];
     } else {
-      screenScale = [0.9, 0.9, 0.9];
+      screenScale = [1, 1, 1];
     }
     return [screenScale, screenPosition, rotation];
   };
@@ -68,7 +61,7 @@ function App() {
     .then((data) => setDolar(data.venta));
 
   return (
-    <>
+    <div className="main-container">
       <nav className="nav-bar">
         <div className="logo-new">
           <img src={Logo} alt="Confi Plant"></img>
@@ -85,8 +78,7 @@ function App() {
       </nav>
 
       <label id="webapp" style={{ color: "transparent" }}></label>
-      <div className="initialPageContainer"
-      >
+      <div className="initialPageContainer">
         <div className="video-presentacion">
           <svg
             id="visual"
@@ -126,30 +118,21 @@ function App() {
         <div className="titles-container">
           <h3>Empezá a cultivar</h3>
           <h1>ConfiPlant</h1>
-          
 
           <h2>LLeva tu cultivo al siguiente nivel!</h2>
 
           {/* <h4>Cambiamos la wea del cultivo de indoor Cambiamos la wea del cultivo de indoor Cambiamos la wea del cultivo de indoor, aca te mostramos como..</h4>*/}
-          <a className='boton-mira-como' href="#ordernow"><p>Mira como</p></a>
+          <a className="boton-mira-como" href="#ordernow">
+            <p>Mira como</p>
+          </a>
         </div>
         <div className="image-container">
           <img src={WebImage} alt="Confi Plant main dashboard"></img>
         </div>
-        
       </div>
 
       <label id="mobileapp" style={{ color: "transparent" }}></label>
-      <div
-        style={{
-          backgroundColor: "#48d480",
-          height: "100vh",
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-          position: "relative",
-        }}
-      >
+      <div style={{ backgroundColor: "#48d480" }} className="defaultContainer">
         <div className="video-presentacion" style={{ marginTop: 0 }}>
           <svg
             id="visual"
@@ -197,23 +180,19 @@ function App() {
           <div className="mobile-text-container">
             <p className="text-white">CONFI PLANT</p>
             <p>
-              te permite controlar y cuidar tus plantas desde tu celular, cuando y
-              donde quieras!.
+              te permite controlar y cuidar tus plantas desde tu celular, cuando
+              y donde quieras!.
             </p>
           </div>
         </div>
-        
       </div>
       <label id="ordernow" style={{ color: "transparent" }}></label>
       <div
         style={{
           backgroundColor: "#25992c",
-          height: "100vh",
-          display: "flex",
-          justifyContent: "space-between",
-          alignItems: "center",
-          position: "relative",
         }}
+        className="defaultContainer"
+        id="disenio-3d"
       >
         <div className="video-presentacion">
           <svg
@@ -256,11 +235,16 @@ function App() {
             })}
           </p>
         </div>
-        <div className="info-text-container">
-        <h3 style={{fontSize: 27, textAlign: "start", marginLeft: 20}}>Medicion ambiental</h3>
+        <div className="info-text-container left">
+          <h3 style={{ fontSize: 27, textAlign: "start", paddingLeft: 10 }}>
+            Medicion ambiental
+          </h3>
           <div className="green-bubble left-bubble">
-            
-            <img style={{transform: "scale(1.1)", zIndex: 1}} src={RHT} alt="RHT"></img>
+            <img
+              style={{ transform: "scale(1.15)", zIndex: 1 }}
+              src={RHT}
+              alt="RHT"
+            ></img>
           </div>
           <p>
             Nuestro equipo de medicion cuenta con un sensor de temperatura y
@@ -272,8 +256,7 @@ function App() {
         </div>
 
         <Canvas
-          className="w-full h-screen bg-transparent"
-          style={{ height: "100vh", position: "absolute", zIndex: 4 }}
+          className="w-full h-screen bg-transparent canvas-style"
           camera={{ near: 0.1, far: 1000, position: [150, 150, 150] }}
         >
           <Suspense fallback={<Loader />}>
@@ -283,7 +266,7 @@ function App() {
               autoRotate={true}
               autoRotateSpeed={3}
               enablePan={false}
-              enableRotate={true}
+              enableRotate={false}
             />
             <directionalLight position={[1, 1, 1]} intensity={0.3} />
             <directionalLight position={[-1, -1, -1]} intensity={2} />
@@ -301,8 +284,8 @@ function App() {
             />
           </Suspense>
         </Canvas>
-        <div className="info-text-container">
-          <p style={{marginRight: 20}} >
+        <div className="info-text-container right">
+          <p style={{ paddingRight: 10 }}>
             {" "}
             Confi Plant tiene sensores de suelo de tipo capacitivos, que miden
             la humedad del sustrato de forma precisa y sin dañarlo. Estos
@@ -311,9 +294,15 @@ function App() {
             crecimiento y rendimiento.
           </p>
           <div className="green-bubble right-bubble">
-            <img style={{transform: "scale(1.12)", zIndex: 1}} src={Soil} alt="Download"></img>
+            <img
+              style={{ transform: "scale(1.14)", zIndex: 1 }}
+              src={Soil}
+              alt="Download"
+            ></img>
           </div>
-          <h3 style={{fontSize: 27, textAlign: "end", marginRight: 30}}>Medicion de suelo</h3>
+          <h3 style={{ fontSize: 27, textAlign: "end", marginRight: 30 }}>
+            Medicion de suelo
+          </h3>
         </div>
         <div className="call-to-action">
           <Link to="/order">
@@ -325,12 +314,8 @@ function App() {
       <div
         style={{
           backgroundColor: "#3fc66c",
-          height: "100vh",
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-          position: "relative",
         }}
+        className="defaultContainer"
       >
         <div className="video-presentacion">
           <svg
@@ -422,12 +407,9 @@ function App() {
       </div>
       <div
         style={{
-          height: "100vh",
-          display: "flex",
-          position: "relative",
-          width: "100%",
           backgroundColor: "#25992c",
         }}
+        className="defaultContainer"
       >
         <div className="video-presentacion">
           <svg
@@ -468,9 +450,9 @@ function App() {
             ></path>
           </svg>
         </div>
-        <div className="mobile-images-showup" >
+        <div className="mobile-images-showup">
           <div className="textos-app">
-            <div className="texto-description" style={{marginLeft:40}}>
+            <div className="texto-description" style={{ marginLeft: 40 }}>
               <p>
                 Confi Plant tiene <strong>sensores de suelo</strong> de tipo
                 capacitivos, que miden la humedad del sustrato de forma precisa
@@ -479,10 +461,20 @@ function App() {
                 pueden afectar su crecimiento y rendimiento.
               </p>
             </div>
-            <div className="texto-description left" style={{marginRight:10}}>
-            <svg className="yellow" fill="rgb(251, 255, 0)" width="80px" height="80px" viewBox="0 0 1920 1920" xmlns="http://www.w3.org/2000/svg">
-                <path d="M960 0c529.355 0 960 430.645 960 960s-430.645 960-960 960S0 1489.355 0 960c0-172.687 46.419-341.986 134.174-489.6l97.017 57.713C153.826 658.22 112.94 807.529 112.94 960c0 467.125 379.934 847.059 847.059 847.059 467.125 0 847.059-379.934 847.059-847.059 0-448.038-349.779-816-790.588-845.139v223.963H903.529V0ZM322.334 242.372l482.259 482.372c44.612-29.704 97.92-47.097 155.407-47.097 155.633 0 282.353 126.72 282.353 282.353S1115.633 1242.353 960 1242.353 677.647 1115.633 677.647 960c0-57.487 17.393-110.795 47.097-155.407L242.372 322.334l79.962-79.962ZM960 790.588c-93.402 0-169.412 76.01-169.412 169.412s76.01 169.412 169.412 169.412 169.412-76.01 169.412-169.412S1053.402 790.588 960 790.588Z" fill-rule="evenodd"/>
-            </svg>
+            <div className="texto-description left" style={{ marginRight: 10 }}>
+              <svg
+                className="yellow"
+                fill="rgb(251, 255, 0)"
+                width="80px"
+                height="80px"
+                viewBox="0 0 1920 1920"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M960 0c529.355 0 960 430.645 960 960s-430.645 960-960 960S0 1489.355 0 960c0-172.687 46.419-341.986 134.174-489.6l97.017 57.713C153.826 658.22 112.94 807.529 112.94 960c0 467.125 379.934 847.059 847.059 847.059 467.125 0 847.059-379.934 847.059-847.059 0-448.038-349.779-816-790.588-845.139v223.963H903.529V0ZM322.334 242.372l482.259 482.372c44.612-29.704 97.92-47.097 155.407-47.097 155.633 0 282.353 126.72 282.353 282.353S1115.633 1242.353 960 1242.353 677.647 1115.633 677.647 960c0-57.487 17.393-110.795 47.097-155.407L242.372 322.334l79.962-79.962ZM960 790.588c-93.402 0-169.412 76.01-169.412 169.412s76.01 169.412 169.412 169.412 169.412-76.01 169.412-169.412S1053.402 790.588 960 790.588Z"
+                  fill-rule="evenodd"
+                />
+              </svg>
               <p>
                 El dispositivo también incluye <strong>timers</strong>{" "}
                 integrados que te permiten apagar y prender las luces para
@@ -498,7 +490,7 @@ function App() {
               </p>
             </div>
 
-            <div className="texto-description" style={{marginLeft:20}}>
+            <div className="texto-description" style={{ marginLeft: 20 }}>
               <p>
                 Nuestro equipo de medicion cuenta con un sensor de{" "}
                 <strong>temperatura y humedad relativa</strong> del ambiente,
@@ -511,73 +503,116 @@ function App() {
           </div>
 
           <div className="imagenes-container">
-
-          <div className="imagenes">
-            
-
-            {screens.map((index) => {
-              return (
-                <Card
-                  key={index}
-                  index={index}
-                  isPrev={prevValue > activeScreen && activeScreen == index}
-                  isNext={prevValue < activeScreen && activeScreen == index}
-                  isSelected={activeScreen === index}
-                  isPrevValue={prevValue === index}
-                ></Card>
-              );
-            })}
-          </div>
-          <div className="slider-controls">
-          
-            <button
-              onClick={() => {
-                setPrevValue(activeScreen);
-                if (activeScreen > 0) {                  
-                  setActive(activeScreen - 1);
-                }else{
-                  setActive(screens.length-1);                  
-                }
-
-              }}
-            >
-              <svg style={{transform:"rotate(180deg)"}}width="20px" height="20px" viewBox="0 0 24 24" id="meteor-icon-kit__solid-chevron-circle-right" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M12 0C18.6274 0 24 5.37258 24 12C24 18.6274 18.6274 24 12 24C5.37258 24 0 18.6274 0 12C0 5.37258 5.37258 0 12 0ZM9.43934 14.9393C8.85355 15.5251 8.85355 16.4749 9.43934 17.0607C10.0251 17.6464 10.9749 17.6464 11.5607 17.0607L15.5607 13.0607C16.1464 12.4749 16.1464 11.5251 15.5607 10.9393L11.5607 6.93934C10.9749 6.35355 10.0251 6.35355 9.43934 6.93934C8.85355 7.52513 8.85355 8.47487 9.43934 9.06066L12.3787 12L9.43934 14.9393Z" fill="#bbeebe"/></svg>
-            </button>
-            {screens.map((index)=>{
-              return (<a key={index} className='dot' onClick={()=>{               
+            <div className="imagenes">
+              {screens.map((index) => {
+                return (
+                  <Card
+                    key={index}
+                    index={index}
+                    isPrev={prevValue > activeScreen && activeScreen == index}
+                    isNext={prevValue < activeScreen && activeScreen == index}
+                    isSelected={activeScreen === index}
+                    isPrevValue={prevValue === index}
+                  ></Card>
+                );
+              })}
+            </div>
+            <div className="slider-controls">
+              <button
+                onClick={() => {
                   setPrevValue(activeScreen);
-                  setActive(index)
-                }} style={{backgroundColor:index===activeScreen?"#bbeebe":"#71dd77"}}></a>)
-            })}
-            <button
-              onClick={() => {
-                setPrevValue(activeScreen);
-                if (activeScreen < (screens.length -1)) {
-                  setActive(activeScreen + 1);
-                }else{
-                  setActive(0);
-                }
-              }}
-            >
-              <svg width="20px" height="20px" viewBox="0 0 24 24" id="meteor-icon-kit__solid-chevron-circle-right" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M12 0C18.6274 0 24 5.37258 24 12C24 18.6274 18.6274 24 12 24C5.37258 24 0 18.6274 0 12C0 5.37258 5.37258 0 12 0ZM9.43934 14.9393C8.85355 15.5251 8.85355 16.4749 9.43934 17.0607C10.0251 17.6464 10.9749 17.6464 11.5607 17.0607L15.5607 13.0607C16.1464 12.4749 16.1464 11.5251 15.5607 10.9393L11.5607 6.93934C10.9749 6.35355 10.0251 6.35355 9.43934 6.93934C8.85355 7.52513 8.85355 8.47487 9.43934 9.06066L12.3787 12L9.43934 14.9393Z" fill="#bbeebe"/></svg>
-            </button>
+                  if (activeScreen > 0) {
+                    setActive(activeScreen - 1);
+                  } else {
+                    setActive(screens.length - 1);
+                  }
+                }}
+              >
+                <svg
+                  style={{ transform: "rotate(180deg)" }}
+                  width="20px"
+                  height="20px"
+                  viewBox="0 0 24 24"
+                  id="meteor-icon-kit__solid-chevron-circle-right"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    clip-rule="evenodd"
+                    d="M12 0C18.6274 0 24 5.37258 24 12C24 18.6274 18.6274 24 12 24C5.37258 24 0 18.6274 0 12C0 5.37258 5.37258 0 12 0ZM9.43934 14.9393C8.85355 15.5251 8.85355 16.4749 9.43934 17.0607C10.0251 17.6464 10.9749 17.6464 11.5607 17.0607L15.5607 13.0607C16.1464 12.4749 16.1464 11.5251 15.5607 10.9393L11.5607 6.93934C10.9749 6.35355 10.0251 6.35355 9.43934 6.93934C8.85355 7.52513 8.85355 8.47487 9.43934 9.06066L12.3787 12L9.43934 14.9393Z"
+                    fill="#bbeebe"
+                  />
+                </svg>
+              </button>
+              
+                {screens.map((index) => {
+                  return (
+                    <a
+                      key={index}
+                      className="dot"
+                      onClick={() => {
+                        setPrevValue(activeScreen);
+                        setActive(index);
+                      }}
+                      style={{
+                        backgroundColor:
+                          index === activeScreen ? "#bbeebe" : "#71dd77",
+                      }}
+                    ></a>
+                  );
+                })}
+              <button
+                onClick={() => {
+                  setPrevValue(activeScreen);
+                  if (activeScreen < screens.length - 1) {
+                    setActive(activeScreen + 1);
+                  } else {
+                    setActive(0);
+                  }
+                }}
+              >
+                <svg
+                  width="20px"
+                  height="20px"
+                  viewBox="0 0 24 24"
+                  id="meteor-icon-kit__solid-chevron-circle-right"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    clip-rule="evenodd"
+                    d="M12 0C18.6274 0 24 5.37258 24 12C24 18.6274 18.6274 24 12 24C5.37258 24 0 18.6274 0 12C0 5.37258 5.37258 0 12 0ZM9.43934 14.9393C8.85355 15.5251 8.85355 16.4749 9.43934 17.0607C10.0251 17.6464 10.9749 17.6464 11.5607 17.0607L15.5607 13.0607C16.1464 12.4749 16.1464 11.5251 15.5607 10.9393L11.5607 6.93934C10.9749 6.35355 10.0251 6.35355 9.43934 6.93934C8.85355 7.52513 8.85355 8.47487 9.43934 9.06066L12.3787 12L9.43934 14.9393Z"
+                    fill="#bbeebe"
+                  />
+                </svg>
+              </button>
+            </div>
           </div>
-          
-          </div>
-
 
           <div className="textos-app">
-            <div className="texto-description right" style={{marginRight:30}}>
-            <svg className="blue" fill="rgb(55, 30, 196)" width="70px" height="70px" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
-                  <g id="Layer_2" data-name="Layer 2">
-                    <g id="invisible_box" data-name="invisible box">
-                      <rect width="48" height="48" fill="none"/>
-                    </g>
-                    <g id="Layer_6" data-name="Layer 6">
-                      <path d="M25.2,2A21.8,21.8,0,0,0,8.9,8,21.6,21.6,0,0,0,2,24,22.1,22.1,0,0,0,22.9,46H23a3.2,3.2,0,0,0,2.1-.8A3.1,3.1,0,0,0,26,43V33.8a9.8,9.8,0,0,0,8-9.6V20a2.1,2.1,0,0,0-2-2H30V12.9a2,2,0,1,0-4,0V18H22V12.9a2,2,0,1,0-4,0V18H16a2,2,0,0,0-2,2v4.1a10,10,0,0,0,2.8,7A10.1,10.1,0,0,0,22,33.8v8.1a18,18,0,0,1-10.4-31A18.3,18.3,0,0,1,25,6,18.3,18.3,0,0,1,42,24.2a17.4,17.4,0,0,1-5.3,12.5,2.1,2.1,0,0,0,2.9,2.9A21.7,21.7,0,0,0,46,24.2,22.2,22.2,0,0,0,25.2,2ZM18,24.1V22H30v2.2A5.8,5.8,0,0,1,24.3,30h-.6a5.6,5.6,0,0,1-4-1.7A5.9,5.9,0,0,1,18,24.1Z"/>
-                    </g>
+            <div
+              className="texto-description right"
+              style={{ marginRight: 30 }}
+            >
+              <svg
+                className="blue"
+                fill="rgb(55, 30, 196)"
+                width="70px"
+                height="70px"
+                viewBox="0 0 48 48"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <g id="Layer_2" data-name="Layer 2">
+                  <g id="invisible_box" data-name="invisible box">
+                    <rect width="48" height="48" fill="none" />
                   </g>
-                </svg>
+                  <g id="Layer_6" data-name="Layer 6">
+                    <path d="M25.2,2A21.8,21.8,0,0,0,8.9,8,21.6,21.6,0,0,0,2,24,22.1,22.1,0,0,0,22.9,46H23a3.2,3.2,0,0,0,2.1-.8A3.1,3.1,0,0,0,26,43V33.8a9.8,9.8,0,0,0,8-9.6V20a2.1,2.1,0,0,0-2-2H30V12.9a2,2,0,1,0-4,0V18H22V12.9a2,2,0,1,0-4,0V18H16a2,2,0,0,0-2,2v4.1a10,10,0,0,0,2.8,7A10.1,10.1,0,0,0,22,33.8v8.1a18,18,0,0,1-10.4-31A18.3,18.3,0,0,1,25,6,18.3,18.3,0,0,1,42,24.2a17.4,17.4,0,0,1-5.3,12.5,2.1,2.1,0,0,0,2.9,2.9A21.7,21.7,0,0,0,46,24.2,22.2,22.2,0,0,0,25.2,2ZM18,24.1V22H30v2.2A5.8,5.8,0,0,1,24.3,30h-.6a5.6,5.6,0,0,1-4-1.7A5.9,5.9,0,0,1,18,24.1Z" />
+                  </g>
+                </g>
+              </svg>
               <p>
                 Con Confi Plant podes elegir entre{" "}
                 <strong>2 y 4 enchufes</strong>(**Revisar opciones de compra)
@@ -590,7 +625,7 @@ function App() {
               </p>
             </div>
 
-            <div className="texto-description" style={{marginLeft:10}}>
+            <div className="texto-description" style={{ marginLeft: 10 }}>
               <p>
                 La estuctura cuenta con fuentes aisladas para proteger el
                 dispositivo de <strong>sobretensiones</strong>. Las
@@ -601,12 +636,38 @@ function App() {
               </p>
             </div>
 
-            <div className="texto-description right" style={{marginRight:40}}>
-              <svg className="orange" fill="rgb(228, 148, 0)" width="60px" height="60px" viewBox="0 0 36 36" version="1.1"  preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+            <div
+              className="texto-description right"
+              style={{ marginRight: 40 }}
+            >
+              <svg
+                className="orange"
+                fill="rgb(228, 148, 0)"
+                width="60px"
+                height="60px"
+                viewBox="0 0 36 36"
+                version="1.1"
+                preserveAspectRatio="xMidYMid meet"
+                xmlns="http://www.w3.org/2000/svg"
+                xmlns:xlink="http://www.w3.org/1999/xlink"
+              >
                 <title>notification-outline-badged</title>
-                <path class="clr-i-outline--badged clr-i-outline-path-1--badged" d="M18,34.28A2.67,2.67,0,0,0,20.58,32H15.32A2.67,2.67,0,0,0,18,34.28Z"></path><path class="clr-i-outline--badged clr-i-outline-path-2--badged" d="M32.51,27.83A14.4,14.4,0,0,1,30,24.9a12.63,12.63,0,0,1-1.35-4.81V15.15a10.92,10.92,0,0,0-.16-1.79,7.44,7.44,0,0,1-2.24-.84,8.89,8.89,0,0,1,.4,2.64v4.94a14.24,14.24,0,0,0,1.65,5.85,16.17,16.17,0,0,0,2.44,3H5.13a16.17,16.17,0,0,0,2.44-3,14.24,14.24,0,0,0,1.65-5.85V15.15A8.8,8.8,0,0,1,18,6.31a8.61,8.61,0,0,1,4.76,1.44A7.49,7.49,0,0,1,22.5,6c0-.21,0-.42,0-.63a10.58,10.58,0,0,0-3.32-1V3.11a1.33,1.33,0,1,0-2.67,0V4.42A10.81,10.81,0,0,0,7.21,15.15v4.94A12.63,12.63,0,0,1,5.86,24.9a14.4,14.4,0,0,1-2.47,2.93,1,1,0,0,0-.34.75v1.36a1,1,0,0,0,1,1h27.8a1,1,0,0,0,1-1V28.58A1,1,0,0,0,32.51,27.83Z"></path><circle class="clr-i-outline--badged clr-i-outline-path-1--badged clr-i-badge" cx="30" cy="6" r="5"></circle>
-                <rect x="0" y="0" width="36" height="36" fill-opacity="0"/>
-            </svg>
+                <path
+                  class="clr-i-outline--badged clr-i-outline-path-1--badged"
+                  d="M18,34.28A2.67,2.67,0,0,0,20.58,32H15.32A2.67,2.67,0,0,0,18,34.28Z"
+                ></path>
+                <path
+                  class="clr-i-outline--badged clr-i-outline-path-2--badged"
+                  d="M32.51,27.83A14.4,14.4,0,0,1,30,24.9a12.63,12.63,0,0,1-1.35-4.81V15.15a10.92,10.92,0,0,0-.16-1.79,7.44,7.44,0,0,1-2.24-.84,8.89,8.89,0,0,1,.4,2.64v4.94a14.24,14.24,0,0,0,1.65,5.85,16.17,16.17,0,0,0,2.44,3H5.13a16.17,16.17,0,0,0,2.44-3,14.24,14.24,0,0,0,1.65-5.85V15.15A8.8,8.8,0,0,1,18,6.31a8.61,8.61,0,0,1,4.76,1.44A7.49,7.49,0,0,1,22.5,6c0-.21,0-.42,0-.63a10.58,10.58,0,0,0-3.32-1V3.11a1.33,1.33,0,1,0-2.67,0V4.42A10.81,10.81,0,0,0,7.21,15.15v4.94A12.63,12.63,0,0,1,5.86,24.9a14.4,14.4,0,0,1-2.47,2.93,1,1,0,0,0-.34.75v1.36a1,1,0,0,0,1,1h27.8a1,1,0,0,0,1-1V28.58A1,1,0,0,0,32.51,27.83Z"
+                ></path>
+                <circle
+                  class="clr-i-outline--badged clr-i-outline-path-1--badged clr-i-badge"
+                  cx="30"
+                  cy="6"
+                  r="5"
+                ></circle>
+                <rect x="0" y="0" width="36" height="36" fill-opacity="0" />
+              </svg>
               <p>
                 Con Confi Plant podes configurar{" "}
                 <strong>alertas y notificaciones</strong> a{" "}
@@ -617,8 +678,6 @@ function App() {
               </p>
             </div>
           </div>
-
-          
         </div>
       </div>
       <div className="footer">
@@ -660,7 +719,7 @@ function App() {
           </a>
         </div>
       </div>
-    </>
+    </div>
   );
 }
 
