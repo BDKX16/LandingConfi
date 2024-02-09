@@ -14,7 +14,7 @@ RUN npm run build
 FROM nginx:alpine
 
 # Copiamos los archivos estáticos generados por la compilación de la aplicación en el contenedor de Nginx
-COPY --from=builder /app/build /usr/share/nginx/html
+COPY --from=builder /app/dist /usr/share/nginx/html
 
 # Copiamos los certificados SSL de Certbot al contenedor
 # COPY /etc/letsencrypt/live/leawebpage.com /etc/nginx/certs
