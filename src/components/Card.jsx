@@ -1,4 +1,5 @@
-import React from 'react'
+/* eslint-disable react/prop-types */
+
 import MobileImage from "../assets/screenCaptureMobileApp.jpg"
 import MobileImage2 from "../assets/screenCaptureMobileApp2.jpg"
 import MobileImage3 from "../assets/screenCaptureMobileApp3.jpg"
